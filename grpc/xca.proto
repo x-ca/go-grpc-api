@@ -1,0 +1,28 @@
+syntax = "proto3";
+import "google/protobuf/empty.proto";
+
+package main;
+option go_package = "github.com/xiexianbin/go-rpc-demo/grpc";
+
+message TLSRequest {
+  string CN = 1;
+  repeated string Domains = 2;
+  repeated string IPs = 3;
+  int64 Days = 4;
+  int64 KeyBits = 5;
+}
+
+message TLSResponse {
+  string Key = 1;
+  string Cert = 2;
+}
+
+message VersionResponse {
+  string Version = 1;
+}
+
+service Service {
+  rpc Sign(TLSRequest) returns (TLSResponse) {}
+
+  rpc Version(google.protobuf.Empty) returns (VersionResponse) {}
+}
