@@ -1,5 +1,5 @@
 # https://www.xiexianbin.cn/program/tools/2016-01-09-makefile/index.html
-.PHONY: all test clean build build-linux build-mac build-windows
+.PHONY: all test clean build build-linux build-mac build-windows docker-build docker-push
 
 GOCMD=go
 GOBUILD=$(GOCMD) build
@@ -9,6 +9,7 @@ BINARY_NAME=main
 BINARY_LINUX=$(BINARY_NAME)-linux
 BINARY_MAC=$(BINARY_NAME)-darwin
 BINARY_WIN=$(BINARY_NAME)-windows
+IMG ?= xiexianbin/xca-grpc-api:latest
 
 help:  ## Show this help.
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z_-]+:.*?## / {sub("\\\\n",sprintf("\n%22c"," "), $$2);printf "\033[36m%-20s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
@@ -28,3 +29,9 @@ build-mac:  ## build mac amd64
 	CGO_ENABLED=0 GOOS=darwin GOARCH=amd64 $(GOBUILD) -o bin/$(BINARY_MAC) -v
 build-windows:  ## build windows amd64
 	CGO_ENABLED=0 GOOS=windows GOARCH=amd64 $(GOBUILD) -o bin/$(BINARY_WIN) -v
+
+docker-build: test  ## Build docker image
+	docker build -t ${IMG} .
+
+docker-push:  ## Push docker image
+	docker push ${IMG}

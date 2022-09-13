@@ -1,4 +1,4 @@
-module github.com/x-ca/tls-grpc-api
+module github.com/x-ca/go-grpc-api
 
 go 1.17
 

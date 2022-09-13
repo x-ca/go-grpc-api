@@ -16,15 +16,13 @@ package main
 
 import (
 	"flag"
-	"fmt"
 	"log"
 	"net"
-	"os"
 
 	googlerpc "google.golang.org/grpc"
 
-	xgrpc "github.com/x-ca/tls-grpc-api/grpc"
-	xgrpcserver "github.com/x-ca/tls-grpc-api/grpc/server"
+	xgrpc "github.com/x-ca/go-grpc-api/grpc"
+	xgrpcserver "github.com/x-ca/go-grpc-api/grpc/server"
 )
 
 var TLSServer = &xgrpcserver.TLSServiceServer{}
@@ -47,8 +45,7 @@ func init() {
 	flag.Parse()
 
 	if TLSKeyPath == "" || TLSCertPath == "" {
-		fmt.Println("TLSKeyPath or TLSCertPath is empty, start fail...")
-		os.Exit(1)
+		log.Fatal("TLSKeyPath or TLSCertPath is empty, start fail...")
 	}
 
 	_ = xgrpcserver.InitConfig(TLSKeyPath, TLSCertPath, TLSKeyPassword)
