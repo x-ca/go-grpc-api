@@ -1,8 +1,8 @@
-# tls-grpc-api
+# X-CA go-grpc-api
 
-[![build-test](https://github.com/x-ca/tls-grpc-api/actions/workflows/workflow.yaml/badge.svg)](https://github.com/x-ca/tls-grpc-api/actions/workflows/workflow.yaml)
-[![GoDoc](https://godoc.org/github.com/x-ca/tls-grpc-api?status.svg)](https://pkg.go.dev/github.com/x-ca/tls-grpc-api)
-[![Go Report Card](https://goreportcard.com/badge/github.com/x-ca/tls-grpc-api)](https://goreportcard.com/report/github.com/x-ca/tls-grpc-api)
+[![build-test](https://github.com/x-ca/go-grpc-api/actions/workflows/workflow.yaml/badge.svg)](https://github.com/x-ca/go-grpc-api/actions/workflows/workflow.yaml)
+[![GoDoc](https://godoc.org/github.com/x-ca/go-grpc-api?status.svg)](https://pkg.go.dev/github.com/x-ca/go-grpc-api)
+[![Go Report Card](https://goreportcard.com/badge/github.com/x-ca/go-grpc-api)](https://goreportcard.com/report/github.com/x-ca/go-grpc-api)
 
 ## Usage
 
