@@ -18,8 +18,10 @@ $ go run main.go -h
     	tls key password
 ```
 
+- [create ca file](https://github.com/x-ca/go-ca), start gRPC api
+
 ```
 go run main.go \
-  -tls-crt /Users/xiexianbin/workspace/code/github.com/kbcx/temp/x-ca/ca/tls-ca.crt \
-  -tls-key /Users/xiexianbin/workspace/code/github.com/kbcx/temp/x-ca/ca/tls-ca/private/tls-ca.key
+  -tls-crt ./x-ca/ca/tls-ca.crt \
+  -tls-key ./x-ca/ca/tls-ca/private/tls-ca.key
 ```
